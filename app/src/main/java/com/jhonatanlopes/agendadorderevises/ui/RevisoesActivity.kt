@@ -1,8 +1,9 @@
-package com.jhonatanlopes.agendadorderevises
+package com.jhonatanlopes.agendadorderevises.ui
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.jhonatanlopes.agendadorderevises.ui.revisoes.ListaRevisoesFragment
+import com.jhonatanlopes.agendadorderevises.R
+import com.jhonatanlopes.agendadorderevises.db.entity.Revisao
 
 class RevisoesActivity : AppCompatActivity() {
 
@@ -14,6 +15,7 @@ class RevisoesActivity : AppCompatActivity() {
                 .replace(R.id.container, ListaRevisoesFragment.newInstance())
                 .commitNow()
         }
+        Revisao("fe", "re")
     }
 
 }

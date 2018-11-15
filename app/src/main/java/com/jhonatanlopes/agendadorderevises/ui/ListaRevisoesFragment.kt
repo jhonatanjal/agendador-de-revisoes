@@ -1,4 +1,4 @@
-package com.jhonatanlopes.agendadorderevises.ui.revisoes
+package com.jhonatanlopes.agendadorderevises.ui
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.jhonatanlopes.agendadorderevises.R
+import com.jhonatanlopes.agendadorderevises.viewmodel.RevisaoViewModel
 
 class ListaRevisoesFragment : Fragment() {
 
