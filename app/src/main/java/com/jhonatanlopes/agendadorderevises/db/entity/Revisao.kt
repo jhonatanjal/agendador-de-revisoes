@@ -2,6 +2,7 @@ package com.jhonatanlopes.agendadorderevises.db.entity
 
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
+import android.arch.persistence.room.Ignore
 import android.arch.persistence.room.PrimaryKey
 import java.util.*
 
@@ -13,6 +14,7 @@ class Revisao(
     var data: Date,
     @ColumnInfo(name = "quantidade_de_revisoes") var quantidadeDeRevisoes: Int
 ) {
+    @Ignore
     constructor(
         materia: String,
         assunto: String

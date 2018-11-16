@@ -6,7 +6,7 @@
         android:id="@+id/listarevisoes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.revisoes.ListaRevisoesFragment">
+    tools:context=".ui.ListaRevisoesFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/lista_revisoes_recyclerview"
@@ -17,6 +17,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:listitem="@layout/item_revisao" />
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_revisao">
+
+    </android.support.v7.widget.RecyclerView>
 
 </android.support.constraint.ConstraintLayout>

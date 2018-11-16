@@ -18,4 +18,7 @@ interface RevisaoDao {
 
     @Query("SELECT * FROM revisao ORDER BY data")
     fun todasRevisoes(): LiveData<List<Revisao>>
+
+    @Query("DELETE FROM revisao")
+    fun apagaTodas()
 }
