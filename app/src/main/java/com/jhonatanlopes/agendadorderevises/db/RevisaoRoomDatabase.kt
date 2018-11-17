@@ -10,7 +10,7 @@ import android.os.AsyncTask
 import com.jhonatanlopes.agendadorderevises.db.converter.Converters
 import com.jhonatanlopes.agendadorderevises.db.dao.RevisaoDao
 import com.jhonatanlopes.agendadorderevises.db.entity.Revisao
-import com.jhonatanlopes.agendadorderevises.db.utilities.DATABASE_NAME
+import com.jhonatanlopes.agendadorderevises.utilities.DATABASE_NAME
 
 @Database(entities = [Revisao::class], version = 1)
 @TypeConverters(Converters::class)

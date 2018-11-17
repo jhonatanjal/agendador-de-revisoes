@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.jhonatanlopes.agendadorderevises.R
 import com.jhonatanlopes.agendadorderevises.db.entity.Revisao
+import com.jhonatanlopes.agendadorderevises.utilities.formatoBrasileiro
 import kotlinx.android.synthetic.main.item_revisao.view.*
 
 class RevisaoAdapter(
@@ -41,6 +42,7 @@ class RevisaoAdapter(
         fun bind(revisao: Revisao) {
             materia.text = revisao.materia
             assunto.text = revisao.assunto
+            data.text = revisao.data.formatoBrasileiro()
         }
     }
 

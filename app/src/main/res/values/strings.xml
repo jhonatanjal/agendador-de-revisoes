@@ -3,4 +3,7 @@
     <string name="proxima_revisao">Proxima revisão</string>
     <string name="title_activity_teste">TesteActivity</string>
     <string name="action_settings">Settings</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="materia">Materia</string>
+    <string name="assunto">Assunto</string>
 </resources>

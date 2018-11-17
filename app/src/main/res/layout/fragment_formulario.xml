@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.FormularioFragment">
+
+    <EditText
+        android:id="@+id/formulario_campo_materia"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/materia"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/assunto"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@id/formulario_campo_materia"
+        app:layout_constraintStart_toStartOf="@id/formulario_campo_materia"
+        app:layout_constraintTop_toBottomOf="@id/formulario_campo_materia" />
+
+</android.support.constraint.ConstraintLayout>
