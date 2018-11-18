@@ -11,7 +11,5 @@ class RevisoesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.revisoes_activity)
         setSupportActionBar(toolbar)
-
     }
-
 }

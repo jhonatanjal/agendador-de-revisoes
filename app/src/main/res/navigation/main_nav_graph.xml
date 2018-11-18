@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/listaRevisoesFragment">
+
+    <fragment
+        android:id="@+id/listaRevisoesFragment"
+        android:name="com.jhonatanlopes.agendadorderevises.ui.ListaRevisoesFragment"
+        android:label="lista_revisoes_fragment"
+        tools:layout="@layout/lista_revisoes_fragment">
+        <action
+            android:id="@+id/action_listaRevisoesFragment_to_formularioFragment"
+            app:destination="@id/formularioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/formularioFragment"
+        android:name="com.jhonatanlopes.agendadorderevises.ui.FormularioFragment"
+        android:label="fragment_formulario"
+        tools:layout="@layout/fragment_formulario" />
+</navigation>
