@@ -4,6 +4,7 @@ import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.Ignore
 import android.arch.persistence.room.PrimaryKey
+import com.jhonatanlopes.agendadorderevises.utilities.maisUmDia
 import java.util.*
 
 @Entity(tableName = "revisao")
@@ -18,5 +19,5 @@ class Revisao(
     constructor(
         materia: String,
         assunto: String
-    ) : this(null, materia, assunto, Calendar.getInstance().time, 0)
+    ) : this(null, materia, assunto, Calendar.getInstance().time.maisUmDia(), 1)
 }
