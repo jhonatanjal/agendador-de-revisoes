@@ -8,7 +8,7 @@ import com.jhonatanlopes.agendadorderevises.utilities.maisUmDia
 import java.util.*
 
 @Entity(tableName = "revisao")
-class Revisao(
+data class Revisao(
     @PrimaryKey(autoGenerate = true) var id: Int?,
     var materia: String,
     var assunto: String,
@@ -19,5 +19,5 @@ class Revisao(
     constructor(
         materia: String,
         assunto: String
-    ) : this(null, materia, assunto, Calendar.getInstance().time.maisUmDia(), 1)
+    ) : this(null, materia, assunto, Calendar.getInstance().time.maisUmDia(), 0)
 }

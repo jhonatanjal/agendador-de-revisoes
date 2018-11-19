@@ -37,7 +37,7 @@ class ListaRevisoesFragment : Fragment() {
         configuraRecyclerView(adapter)
 
         viewModel.revisoes.observe(this, Observer { revisoes ->
-            revisoes?.let { adapter.setRevisoes(it) }
+            revisoes?.let { adapter.submitList(revisoes) }
         })
 
         fab.setOnClickListener {
