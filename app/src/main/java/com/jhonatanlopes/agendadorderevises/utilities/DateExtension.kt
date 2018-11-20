@@ -23,6 +23,11 @@ fun Date.maisUmMes(): Date {
     return calendar.time
 }
 
+fun Date.hoje(): Boolean {
+    val hoje = Calendar.getInstance().time
+    return hoje.formatado() == this.formatado()
+}
+
 private fun Date.incremenataDataEmUm(unidadeDeTempo: Int): Calendar {
     val calendar = Calendar.getInstance()
     calendar.time = this

@@ -6,4 +6,7 @@
     <string name="confirmar">Confirmar</string>
     <string name="materia">Materia</string>
     <string name="assunto">Assunto</string>
+    <string name="dr_desc_banner">banner de detalhes</string>
+    <string name="dr_btn_revisado">Revisado</string>
+    <string name="numero_de_revisoes">Número de revisões</string>
 </resources>

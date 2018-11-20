@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_listaRevisoesFragment_to_formularioFragment"
             app:destination="@id/formularioFragment" />
+        <action
+            android:id="@+id/action_listaRevisoesFragment_to_detalhesRevisaoFragment"
+            app:destination="@id/detalhesRevisaoFragment" />
     </fragment>
     <fragment
         android:id="@+id/formularioFragment"
@@ -22,5 +25,15 @@
         <action
             android:id="@+id/action_formularioFragment_to_listaRevisoesFragment"
             app:destination="@id/listaRevisoesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalhesRevisaoFragment"
+        android:name="com.jhonatanlopes.agendadorderevises.ui.DetalhesRevisaoFragment"
+        android:label="DetalhesRevisaoFragment">
+        <argument
+            android:name="revisao"
+            android:defaultValue="@null"
+            app:argType="com.jhonatanlopes.agendadorderevises.db.entity.Revisao"
+            app:nullable="true" />
     </fragment>
 </navigation>

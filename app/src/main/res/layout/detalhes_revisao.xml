@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/detalhe_revisao_banner"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:contentDescription="@string/dr_desc_banner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/detalhe_revisao_materia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/detalhe_revisao_banner"
+        app:layout_constraintTop_toTopOf="@+id/detalhe_revisao_banner"
+        tools:text="Direito administrativo" />
+
+    <TextView
+        android:id="@+id/detalhe_revisao_assunto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/detalhe_revisao_banner"
+        app:layout_constraintTop_toBottomOf="@+id/detalhe_revisao_materia"
+        tools:text="Historia do direito administrativo" />
+
+    <Button
+        android:id="@+id/detalhe_revisao_btn_revisado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/fundo_azul_arredondado"
+        android:text="@string/dr_btn_revisado"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="@id/detalhe_revisao_banner"
+        app:layout_constraintStart_toStartOf="@id/detalhe_revisao_banner"
+        app:layout_constraintTop_toBottomOf="@+id/detalhe_revisao_assunto" />
+
+    <TextView
+        android:id="@+id/detalhe_revisao_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detalhe_revisao_banner"
+        tools:text="21 de nov de 2018" />
+
+    <TextView
+        android:id="@+id/detalhe_revisao_numero_lebal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="@string/numero_de_revisoes"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/detalhe_revisao_numero_revisoes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detalhe_revisao_data"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/detalhe_revisao_numero_revisoes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textSize="100sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detalhe_revisao_numero_lebal"
+        tools:text="3" />
+
+</android.support.constraint.ConstraintLayout>

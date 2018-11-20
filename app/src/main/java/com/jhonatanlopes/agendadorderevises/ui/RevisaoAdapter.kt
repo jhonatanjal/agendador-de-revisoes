@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.jhonatanlopes.agendadorderevises.R
 import com.jhonatanlopes.agendadorderevises.db.entity.Revisao
 import com.jhonatanlopes.agendadorderevises.utilities.formatado
@@ -27,15 +28,28 @@ class RevisaoAdapter(
         holder.bind(getItem(position))
     }
 
-    class RevisaoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class RevisaoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val materia = itemView.item_revisao_materia
         private val assunto = itemView.item_revisao_assunto
         private val data = itemView.item_revisao_data
+
+        init {
+            adicionaOnClickListener()
+        }
 
         fun bind(revisao: Revisao) {
             materia.text = revisao.materia
             assunto.text = revisao.assunto
             data.text = revisao.data.formatado()
+        }
+
+        private fun adicionaOnClickListener() {
+            itemView.setOnClickListener {
+                val revisao = getItem(adapterPosition)
+                val action = ListaRevisoesFragmentDirections.actionListaRevisoesFragmentToDetalhesRevisaoFragment()
+                action.setRevisao(revisao)
+                Navigation.findNavController(it).navigate(action)
+            }
         }
     }
 

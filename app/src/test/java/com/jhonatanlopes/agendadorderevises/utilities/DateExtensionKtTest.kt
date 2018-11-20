@@ -1,6 +1,7 @@
 package com.jhonatanlopes.agendadorderevises.utilities
 
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.util.*
 
@@ -29,5 +30,11 @@ class DateExtensionKtTest {
         hoje.add(Calendar.MONTH, 1)
         val esperado = hoje.time
         assertEquals(esperado.formatado(), proximaMes.formatado())
+    }
+
+    @Test
+    fun deve_DevolverSeDataEhHoje() {
+        val date = hoje.time
+        assertTrue(date.hoje())
     }
 }

@@ -4,9 +4,13 @@ import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.Ignore
 import android.arch.persistence.room.PrimaryKey
-import com.jhonatanlopes.agendadorderevises.utilities.maisUmDia
+import android.os.Parcelable
+import com.jhonatanlopes.agendadorderevises.utilities.maisUmMes
+import com.jhonatanlopes.agendadorderevises.utilities.maisUmaSemana
+import kotlinx.android.parcel.Parcelize
 import java.util.*
 
+@Parcelize
 @Entity(tableName = "revisao")
 data class Revisao(
     @PrimaryKey(autoGenerate = true) var id: Int?,
@@ -14,10 +18,15 @@ data class Revisao(
     var assunto: String,
     var data: Date,
     @ColumnInfo(name = "quantidade_de_revisoes") var quantidadeDeRevisoes: Int
-) {
+) : Parcelable {
     @Ignore
     constructor(
         materia: String,
         assunto: String
-    ) : this(null, materia, assunto, Calendar.getInstance().time.maisUmDia(), 0)
+    ) : this(null, materia, assunto, Calendar.getInstance().time, 0)
+
+    fun marcaDataProximaRevisao() {
+        data = if (quantidadeDeRevisoes < 10) data.maisUmaSemana() else data.maisUmMes()
+        quantidadeDeRevisoes++
+    }
 }
