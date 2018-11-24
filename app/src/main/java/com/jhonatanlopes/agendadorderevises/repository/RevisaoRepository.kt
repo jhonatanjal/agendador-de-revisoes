@@ -23,6 +23,10 @@ class RevisaoRepository(context: Context) {
         AtualizaAsyncTask(revisaoDao).execute(revisao)
     }
 
+    fun remove(revisao: Revisao) {
+        RemoveAsyncTask(revisaoDao).execute(revisao)
+    }
+
     private class InsereAsyncTask(private val revisaoDao: RevisaoDao) : AsyncTask<Revisao, Unit, Unit>() {
         override fun doInBackground(vararg params: Revisao?) {
             params[0]?.let { revisaoDao.insere(it) }
@@ -34,4 +38,11 @@ class RevisaoRepository(context: Context) {
             params[0]?.let { revisaoDao.atualiza(it) }
         }
     }
+
+    private class RemoveAsyncTask(private val dao: RevisaoDao) : AsyncTask<Revisao, Unit, Unit>() {
+        override fun doInBackground(vararg params: Revisao?) {
+            params[0]?.apply { dao.remove(this) }
+        }
+    }
+
 }

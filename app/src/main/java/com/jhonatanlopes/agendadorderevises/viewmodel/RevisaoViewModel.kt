@@ -22,4 +22,8 @@ class RevisaoViewModel(application: Application) : AndroidViewModel(application)
         repository.atualiza(revisao)
     }
 
+    fun remove(revisao: Revisao) {
+        repository.remove(revisao)
+    }
+
 }
