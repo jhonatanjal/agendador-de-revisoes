@@ -6,6 +6,7 @@ import android.support.test.runner.AndroidJUnit4
 import com.jhonatanlopes.agendadorderevisoes.db.RevisaoRoomDatabase
 import com.jhonatanlopes.agendadorderevisoes.db.entity.Revisao
 import org.junit.After
+import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -35,5 +36,6 @@ class RevisaoDaoTest {
 
         dao.insere(revisao)
         val revisoes = dao.todasRevisoes()
+        assertNotNull(revisoes)
     }
 }

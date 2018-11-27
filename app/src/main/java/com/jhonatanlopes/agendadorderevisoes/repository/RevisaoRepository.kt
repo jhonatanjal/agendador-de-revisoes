@@ -12,7 +12,7 @@ class RevisaoRepository(context: Context) {
     val revisoes: LiveData<List<Revisao>>
 
     init {
-        revisoes = revisaoDao.todasRevisoes()
+        revisoes = revisaoDao.revisoes()
     }
 
     fun insere(revisao: Revisao) {
@@ -25,6 +25,10 @@ class RevisaoRepository(context: Context) {
 
     fun remove(revisao: Revisao) {
         RemoveAsyncTask(revisaoDao).execute(revisao)
+    }
+
+    fun todasRevisoes(): List<Revisao> {
+        return revisaoDao.todasRevisoes()
     }
 
     private class InsereAsyncTask(private val revisaoDao: RevisaoDao) : AsyncTask<Revisao, Unit, Unit>() {

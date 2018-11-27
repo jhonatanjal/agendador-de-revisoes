@@ -33,7 +33,7 @@
         <argument
             android:name="revisao"
             android:defaultValue="@null"
-            app:argType="com.jhonatanlopes.agendadorderevises.db.entity.Revisao"
+            app:argType="com.jhonatanlopes.agendadorderevisoes.db.entity.Revisao"
             app:nullable="true" />
     </fragment>
 </navigation>

@@ -14,7 +14,10 @@ interface RevisaoDao {
     fun atualiza(revisao: Revisao)
 
     @Query("SELECT * FROM revisao ORDER BY data")
-    fun todasRevisoes(): LiveData<List<Revisao>>
+    fun revisoes(): LiveData<List<Revisao>>
+
+    @Query("SELECT * FROM revisao")
+    fun todasRevisoes(): List<Revisao>
 
     @Delete
     fun remove(revisao: Revisao)

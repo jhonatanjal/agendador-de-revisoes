@@ -1,12 +1,10 @@
 package com.jhonatanlopes.agendadorderevisoes.db
 
-import android.arch.persistence.db.SupportSQLiteDatabase
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.arch.persistence.room.TypeConverters
 import android.content.Context
-import android.os.AsyncTask
 import com.jhonatanlopes.agendadorderevisoes.db.converter.Converters
 import com.jhonatanlopes.agendadorderevisoes.db.dao.RevisaoDao
 import com.jhonatanlopes.agendadorderevisoes.db.entity.Revisao
@@ -31,22 +29,7 @@ abstract class RevisaoRoomDatabase : RoomDatabase() {
             return Room.databaseBuilder(
                 context.applicationContext,
                 RevisaoRoomDatabase::class.java, DATABASE_NAME
-            )
-                .addCallback(object : RoomDatabase.Callback() {
-                    override fun onOpen(db: SupportSQLiteDatabase) {
-                        PopulaAsyncTask().execute()
-                    }
-                })
-                .build()
-        }
-
-        private class PopulaAsyncTask() : AsyncTask<Unit, Unit, Unit>() {
-            override fun doInBackground(vararg params: Unit) {
-                val dao = instance?.revisaoDao()
-                dao?.apagaTodas()
-                dao?.insere(Revisao("Direito", "Direito"))
-                dao?.insere(Revisao("Matematica", "Matematica"))
-            }
+            ).build()
         }
     }
 }
