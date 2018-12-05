@@ -21,7 +21,4 @@ interface RevisaoDao {
 
     @Delete
     fun remove(revisao: Revisao)
-
-    @Query("DELETE FROM revisao")
-    fun apagaTodas()
 }

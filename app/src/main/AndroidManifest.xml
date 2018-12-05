@@ -21,14 +21,10 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name="com.jhonatanlopes.agendadorderevisoes.service.NotificacaoService"
-            android:exported="false" />
-
         <receiver android:name=".receiver.AlarmeReceiver" />
         <receiver android:name=".receiver.DeviceBootReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
