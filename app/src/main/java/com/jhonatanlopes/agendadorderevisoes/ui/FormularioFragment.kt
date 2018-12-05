@@ -4,7 +4,9 @@ import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.view.*
+import android.view.inputmethod.InputMethodManager
 import androidx.navigation.fragment.findNavController
 import com.jhonatanlopes.agendadorderevisoes.R
 import com.jhonatanlopes.agendadorderevisoes.db.entity.Revisao
@@ -36,6 +38,7 @@ class FormularioFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.menu_confirmar -> {
             criaRevisao()
+            findNavController().navigateUp()
             true
         }
 
@@ -49,11 +52,18 @@ class FormularioFragment : Fragment() {
         if (materia.isNotBlank() && assunto.isNotBlank()) {
             val revisao = Revisao(materia, assunto)
             viewModel.insere(revisao)
-            findNavController().navigateUp()
+            escondeTeclado()
         } else {
             view?.let {
                 Snackbar.make(it, "Digite a materia e assunto da revisão", Snackbar.LENGTH_LONG).show()
             }
         }
+    }
+
+    fun escondeTeclado() {
+        val inputMethodManager: InputMethodManager? = context?.let {
+            ContextCompat.getSystemService<InputMethodManager>(it, InputMethodManager::class.java)
+        }
+        inputMethodManager?.hideSoftInputFromWindow(view?.windowToken, 0)
     }
 }
