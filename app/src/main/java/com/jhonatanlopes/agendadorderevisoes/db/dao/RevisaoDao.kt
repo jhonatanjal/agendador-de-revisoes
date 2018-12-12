@@ -13,6 +13,9 @@ interface RevisaoDao {
     @Update
     fun atualiza(revisao: Revisao)
 
+    @Query("SELECT * FROM revisao WHERE id=:id")
+    fun busca(id: Int): LiveData<Revisao>
+
     @Query("SELECT * FROM revisao ORDER BY data")
     fun revisoes(): LiveData<List<Revisao>>
 

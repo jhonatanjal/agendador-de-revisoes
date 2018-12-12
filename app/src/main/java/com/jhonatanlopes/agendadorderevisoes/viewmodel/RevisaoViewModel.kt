@@ -22,6 +22,10 @@ class RevisaoViewModel(application: Application) : AndroidViewModel(application)
         repository.atualiza(revisao)
     }
 
+    fun busca(id: Int): LiveData<Revisao> {
+        return repository.busca(id)
+    }
+
     fun remove(revisao: Revisao) {
         repository.remove(revisao)
     }

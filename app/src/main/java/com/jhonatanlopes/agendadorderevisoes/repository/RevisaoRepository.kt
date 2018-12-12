@@ -8,27 +8,29 @@ import com.jhonatanlopes.agendadorderevisoes.db.dao.RevisaoDao
 import com.jhonatanlopes.agendadorderevisoes.db.entity.Revisao
 
 class RevisaoRepository(context: Context) {
-    private val revisaoDao: RevisaoDao = RevisaoRoomDatabase.getDatabase(context).revisaoDao()
+    private val dao: RevisaoDao = RevisaoRoomDatabase.getDatabase(context).revisaoDao()
     val revisoes: LiveData<List<Revisao>>
 
     init {
-        revisoes = revisaoDao.revisoes()
+        revisoes = dao.revisoes()
     }
 
+    fun busca(id: Int) = dao.busca(id)
+
     fun insere(revisao: Revisao) {
-        InsereAsyncTask(revisaoDao).execute(revisao)
+        InsereAsyncTask(dao).execute(revisao)
     }
 
     fun atualiza(revisao: Revisao) {
-        AtualizaAsyncTask(revisaoDao).execute(revisao)
+        AtualizaAsyncTask(dao).execute(revisao)
     }
 
     fun remove(revisao: Revisao) {
-        RemoveAsyncTask(revisaoDao).execute(revisao)
+        RemoveAsyncTask(dao).execute(revisao)
     }
 
     fun todasRevisoes(): List<Revisao> {
-        return revisaoDao.todasRevisoes()
+        return dao.todasRevisoes()
     }
 
     private class InsereAsyncTask(private val revisaoDao: RevisaoDao) : AsyncTask<Revisao, Unit, Unit>() {
