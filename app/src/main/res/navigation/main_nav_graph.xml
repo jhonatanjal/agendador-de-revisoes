@@ -12,19 +12,36 @@
         tools:layout="@layout/lista_revisoes_fragment">
         <action
             android:id="@+id/action_listaRevisoesFragment_to_formularioFragment"
-            app:destination="@id/formularioFragment" />
+            app:destination="@id/formularioFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
             android:id="@+id/action_listaRevisoesFragment_to_detalhesRevisaoFragment"
-            app:destination="@id/detalhesRevisaoFragment" />
+            app:destination="@id/detalhesRevisaoFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/formularioFragment"
         android:name="com.jhonatanlopes.agendadorderevisoes.ui.FormularioFragment"
         android:label="fragment_formulario"
         tools:layout="@layout/fragment_formulario">
+        <argument
+            android:name="revisao"
+            android:defaultValue="@null"
+            app:argType="com.jhonatanlopes.agendadorderevisoes.db.entity.Revisao"
+            app:nullable="true" />
         <action
             android:id="@+id/action_formularioFragment_to_listaRevisoesFragment"
-            app:destination="@id/listaRevisoesFragment" />
+            app:destination="@id/listaRevisoesFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/detalhesRevisaoFragment"
@@ -35,5 +52,12 @@
             android:defaultValue="@null"
             app:argType="com.jhonatanlopes.agendadorderevisoes.db.entity.Revisao"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_detalhesRevisaoFragment_to_formularioFragment"
+            app:destination="@id/formularioFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 </navigation>

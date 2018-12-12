@@ -14,7 +14,13 @@ import com.jhonatanlopes.agendadorderevisoes.viewmodel.RevisaoViewModel
 import kotlinx.android.synthetic.main.fragment_formulario.*
 
 class FormularioFragment : Fragment() {
-    lateinit var viewModel: RevisaoViewModel
+    private lateinit var viewModel: RevisaoViewModel
+    private val revisao: Revisao?
+        get() {
+            return arguments?.let {
+                FormularioFragmentArgs.fromBundle(it).revisao
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setHasOptionsMenu(true)
@@ -26,8 +32,19 @@ class FormularioFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_formulario, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        if (revisao != null) {
+            preencheFormulario(revisao)
+        }
+        super.onViewCreated(view, savedInstanceState)
+    }
+
+    private fun preencheFormulario(revisao: Revisao?) {
+        formulario_campo_assunto.setText(revisao?.assunto)
+        formulario_campo_materia.setText(revisao?.materia)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
@@ -37,21 +54,24 @@ class FormularioFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.menu_confirmar -> {
-            criaRevisao()
+            resolveFormulario() //TODO pensar em um nome melhor
             findNavController().navigateUp()
             true
         }
-
         else -> super.onOptionsItemSelected(item)
     }
 
-    private fun criaRevisao() {
+    private fun resolveFormulario() {
         val materia = formulario_campo_materia.text.toString()
         val assunto = formulario_campo_assunto.text.toString()
 
         if (materia.isNotBlank() && assunto.isNotBlank()) {
-            val revisao = Revisao(materia, assunto)
-            viewModel.insere(revisao)
+            revisao?.apply {
+                this.materia = materia
+                this.assunto = assunto
+                viewModel.atualiza(this)
+            } ?: viewModel.insere(Revisao(materia, assunto))
+
             escondeTeclado()
         } else {
             view?.let {
@@ -60,7 +80,7 @@ class FormularioFragment : Fragment() {
         }
     }
 
-    fun escondeTeclado() {
+    private fun escondeTeclado() {
         val inputMethodManager: InputMethodManager? = context?.let {
             ContextCompat.getSystemService<InputMethodManager>(it, InputMethodManager::class.java)
         }
