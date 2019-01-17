@@ -45,7 +45,7 @@ class RevisoesDoDiaWorker(
         }
         val pendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
 
-        val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+        val notificacaoBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_notificacao_revisao)
             .setContentTitle(notificationTitle)
             .setContentText(notificationText)
@@ -55,7 +55,7 @@ class RevisoesDoDiaWorker(
             .setDefaults(NotificationCompat.DEFAULT_ALL)
 
         NotificationManagerCompat.from(context).apply {
-            notify(notificationId, builder.build())
+            notify(notificationId, notificacaoBuilder.build())
         }
     }
 }
