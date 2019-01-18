@@ -38,7 +38,9 @@ class RevisoesDoDiaWorker(
     private fun notificaSobreRevisoes(quantidade: Int) {
         val notificationId = 234
         val notificationTitle = "Revisões para hoje"
-        val notificationText = "Você tem $quantidade revisões marcadas para hoje"
+        val notificationText =
+            if (quantidade > 1) "Você tem $quantidade revisões marcadas para hoje"
+            else "Você tem $quantidade revisão marcada para hoje"
 
         val intent = Intent(context, RevisoesActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

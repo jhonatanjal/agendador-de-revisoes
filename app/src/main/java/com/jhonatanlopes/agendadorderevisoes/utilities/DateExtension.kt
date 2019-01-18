@@ -28,6 +28,11 @@ fun Date.hoje(): Boolean {
     return hoje.formatado() == this.formatado()
 }
 
+fun Date.antesDeHoje(): Boolean {
+    val hoje = Calendar.getInstance()
+    return this.before(hoje.time)
+}
+
 private fun Date.incremenataDataEmUm(unidadeDeTempo: Int): Calendar {
     val calendar = Calendar.getInstance()
     calendar.time = this

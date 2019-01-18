@@ -1,5 +1,6 @@
 package com.jhonatanlopes.agendadorderevisoes.utilities
 
+import org.hamcrest.CoreMatchers.equalTo
 import org.junit.Assert.*
 import org.junit.Test
 import java.util.*
@@ -41,5 +42,23 @@ class DateExtensionKtTest {
     fun deve_DevolverFalse_QuandoDataNaoForHoje() {
         val date = hoje.time.maisUmDia()
         assertFalse(date.hoje())
+    }
+
+    @Test
+    fun deve_DevolverTrue_QuandoDataForMenorQueHoje() {
+        val ontem = Calendar.getInstance().apply {
+            add(Calendar.DATE, -5)
+        }
+        val antesDeHoje = ontem.time.antesDeHoje()
+        assertThat(antesDeHoje, equalTo(true))
+    }
+
+    @Test
+    fun deve_DevolverFalse_QuandoDataForMaiorQueHoje() {
+        val ontem = Calendar.getInstance().apply {
+            add(Calendar.DATE, 5)
+        }
+        val depoisDeHoje = ontem.time.antesDeHoje()
+        assertThat(depoisDeHoje, equalTo(false))
     }
 }

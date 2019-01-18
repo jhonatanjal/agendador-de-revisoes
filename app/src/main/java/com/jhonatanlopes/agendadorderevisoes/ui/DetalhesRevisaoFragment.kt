@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import com.jhonatanlopes.agendadorderevisoes.R
 import com.jhonatanlopes.agendadorderevisoes.db.entity.Revisao
 import com.jhonatanlopes.agendadorderevisoes.utilities.formatado
-import com.jhonatanlopes.agendadorderevisoes.utilities.hoje
 import com.jhonatanlopes.agendadorderevisoes.viewmodel.RevisaoViewModel
 import kotlinx.android.synthetic.main.detalhes_revisao.*
 
@@ -70,8 +69,7 @@ class DetalhesRevisaoFragment : Fragment() {
 
     private fun marcarProximaRevisao() {
         revisao?.apply {
-            if (data.hoje()) {
-                marcaDataProximaRevisao()
+            if (marcaDataProximaRevisao()) {
                 preencheDetalhes()
                 viewModel.atualiza(this)
             } else {
